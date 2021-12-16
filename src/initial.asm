@@ -22,12 +22,9 @@ insert "../library/N64_BOOTCODE.BIN"
 
 //starts at $80001000
 Start:	                 
-	lui t0, PIF_BASE     
-	// t0 = $BFC0 << 16	
-	addi t1, zero, 8	         
-	// t1 = 0 + 8
-	sw t1, PIF_CTRL(t0)  
-	// 0xBFC007FC = 8	
+	lui t0, PIF_BASE     // t0 = $BFC0 << 16	
+	addi t1, zero, 8	 // t1 = 0 + 8
+	sw t1, PIF_CTRL(t0)  // 0xBFC007FC = 8	
 
 Loop:  // while(true) infinite
 	j Loop
