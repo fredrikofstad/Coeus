@@ -1,3 +1,3 @@
 @echo off
-bass initial.asm -strict -benchmark
-chksum64 initial.N64
+bass video.asm -strict -benchmark
+chksum64 video.N64
