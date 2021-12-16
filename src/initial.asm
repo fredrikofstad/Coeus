@@ -14,17 +14,22 @@ origin $00000000
 base $80000000
 //useful for patcher
 
-include "../LIB/N64.INC"
-include "../LIB/N64_GFX.INC"
+//everything in asm is written to rom, inc is written as needed
+include "../library/N64.INC"
+include "../library/N64_GFX.INC"
 include "N64_Header.asm"
-insert "../LIB/N64_BOOTCODE.BIN"
+insert "../library/N64_BOOTCODE.BIN"
 
-Start:	                 // NOTE: base $80001000
-	lui t0, PIF_BASE     // t0 = $BFC0 << 16	
-	addi t1, zero, 8	         // t1 = 0 + 8
-	sw t1, PIF_CTRL(t0)  // 0xBFC007FC = 8	
+//starts at $80001000
+Start:	                 
+	lui t0, PIF_BASE     
+	// t0 = $BFC0 << 16	
+	addi t1, zero, 8	         
+	// t1 = 0 + 8
+	sw t1, PIF_CTRL(t0)  
+	// 0xBFC007FC = 8	
 
-Loop:  // while(true);
+Loop:  // while(true) infinite
 	j Loop
 	nop
 	
