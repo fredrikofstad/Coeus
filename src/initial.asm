@@ -6,10 +6,9 @@ output "test.N64", create
 fill $0010'1000 // Set ROM Size in hex
 
 // 4096 B reserved for header (config etc)
-// 1,048,576‬B copied to ram on boot
-// leaving 1,052,672‬B for me
-// 1052672‬ bytes = $00101000‬ in hex
-
+// 1,048,576b copied to ram on boot
+// leaving 1,052,672b for me
+// 1052672 bytes = $0010 1000 in hex
 
 origin $00000000
 base $80000000
