@@ -1,7 +1,7 @@
 // Simple init
 arch n64.cpu
 endian msb
-output "test.N64", create
+output "initial.N64", create
 
 fill $0010'1000 // Set ROM Size in hex
 
