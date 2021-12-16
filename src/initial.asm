@@ -11,15 +11,16 @@ fill $0010'1000 // Set ROM Size in hex
 // 1052672 bytes = $0010 1000 in hex
 
 origin $00000000
-base $80000000
-//useful for patcher
+base $80000000 //needed for calculating branches and jumps
 
 //everything in asm is written to rom, inc is written as needed
+//bin treated as binary blob inserted byte by byte
 include "../library/N64.INC"
 include "N64_Header.asm"
 insert "../library/N64_BOOTCODE.BIN"
 
 //starts at $80001000
+//cartridge authentication protection
 Start:	                 
 	lui t0, PIF_BASE     // t0 = $BFC0 << 16	
 	addi t1, zero, 8	 // t1 = 0 + 8
