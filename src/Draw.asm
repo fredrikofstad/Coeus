@@ -84,9 +84,9 @@ Start:
 	addi t2, t1, 200 //add t1 value plus 200 to t2 register
 DoStorePixels:	
 	sw t0, 0x0(t1)
+	bne t1, t2, DoStorePixels // if t1 != t2 then DoStorePixels
+	//delay slot - gets run before branch - saves cycle
 	addi t1, t1, 4 //sw is 4 bytes so we increment with 4
-	bne t1, t2, DoStorePixels //tests if t1 == t2 if not DoStorePixels
-	nop
 
 	
 Loop:
